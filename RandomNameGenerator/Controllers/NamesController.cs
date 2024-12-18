@@ -5,17 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RandomNameGenerator.Controllers
 {
-    public class NameController : Controller
+    public class NamesController : Controller
     {
         private const string API_URL = "https://randomuser.me/api/";
         private readonly ClanNameGenerator _generator = new ClanNameGenerator();
+        private readonly ScottishTownGen _generateScottishTown = new ScottishTownGen();
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public async Task<IActionResult> GenerateName()
+        [HttpGet]
+        public async Task<IActionResult> GetRandomName()
         {
             using (var client = new HttpClient())
             {
@@ -67,6 +69,11 @@ namespace RandomNameGenerator.Controllers
         {
             return Json(new { clanName = _generator.GenerateName() });
         }
+
+        public IActionResult GenerateCity()
+        {
+            return Json(new { cityName = _generateScottishTown.GenCityNames() });
+        }
     }
 
     public class ClanNameGenerator
@@ -90,6 +97,22 @@ namespace RandomNameGenerator.Controllers
             var prefix = _prefixes[_random.Next(_prefixes.Count)];
             var suffix = _suffixes[_random.Next(_suffixes.Count)];
             return $"{prefix}{suffix}";
+        }
+    }
+
+    public class ScottishTownGen
+    {
+        private readonly List<string> _cities = new List<string>
+        {
+            "Glasgow", "Edinburgh", "Inverness", "Perth", "Aberdeen", "Stirling", "Dunfermline", "Dundee"
+        };
+
+        private readonly Random _random = new Random();
+
+        public string GenCityNames()
+        {
+            var cities = _cities[_random.Next(_cities.Count)];
+            return $"{cities}";
         }
     }
 }
