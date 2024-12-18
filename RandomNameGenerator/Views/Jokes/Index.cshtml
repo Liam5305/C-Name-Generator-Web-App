@@ -1,21 +1,15 @@
 ﻿@model DadJokes
-
-<div class="container mt-4">
-    <h2 class="text-center mb-4">Random Dad Joke</h2>
-    <div class="card">
-        <div class="card-body">
-            @if (Model != null && !string.IsNullOrEmpty(Model.Joke))
-            {
-                <p class="card-text fs-5">@Model.Joke</p>
-            }
-            else
-            {
-                <p class="card-text text-center">Loading joke...</p>
-            }
-        </div>
-    </div>
-
-    <div class="text-center mt-3">
-        <a href="@Url.Action("Index", "Jokes")" class="btn btn-primary">Generate Joke</a>
+<div class="jokes-page">
+    <h2>Random Dad Joke</h2>
+    <div class="jokes-container">
+        @if (Model != null && !string.IsNullOrEmpty(Model.Joke))
+        {
+            <p class="joke-text">@Model.Joke</p>
+        }
+        else
+        {
+            <p class="joke-text">Loading joke...</p>
+        }
+        <a href="@Url.Action("Index", "Jokes")" class="generate-joke-btn">Generate Joke</a>
     </div>
 </div>

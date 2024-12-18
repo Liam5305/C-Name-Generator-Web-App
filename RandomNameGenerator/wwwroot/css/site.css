@@ -20,3 +20,231 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.inspo-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.inspo-text {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.inspo-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .inspo-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+.inspo-carbody {
+    margin-bottom: 2rem;
+}
+
+.card-text {
+    color: #34495e;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+}
+
+.inspo-btn {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+
+/* Loading state styling */
+.text-center {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .inspo-container {
+        margin: 2rem auto;
+    }
+
+    .inspo-text {
+        font-size: 2rem;
+    }
+
+    .card-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Scope all styles to the name generator page */
+.name-generator-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+    .name-generator-page .generator-section {
+        width: 100%;
+        max-width: 500px;
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+        /* Specific styling for the clan generator section */
+        .name-generator-page .generator-section:nth-child(2) {
+            background-color: #f8f9fa;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 6rem 0;
+        }
+
+    .name-generator-page h2 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+
+    .name-generator-page .generator-btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 0.8rem 3rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        min-width: 250px;
+    }
+
+        .name-generator-page .generator-btn:hover {
+            background-color: #2980b9;
+        }
+
+    .name-generator-page .result-area {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .name-generator-page {
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+        .name-generator-page .generator-section {
+            margin: 2rem 0;
+        }
+
+            .name-generator-page .generator-section:nth-child(2) {
+                margin: 4rem 0;
+                padding: 2rem;
+            }
+
+        .name-generator-page h2 {
+            font-size: 1.8rem;
+        }
+}
+
+.jokes-page {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .jokes-page h2 {
+        color: #95a5a6;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        font-weight: 300;
+        font-style: italic;
+    }
+
+.jokes-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.joke-text {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin: 2rem 0;
+}
+
+.generate-joke-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.8rem 3rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 200px;
+    margin-top: 2rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .generate-joke-btn:hover {
+        background-color: #2980b9;
+        text-decoration: none;
+        color: white;
+    }
+
+@media (max-width: 768px) {
+    .jokes-page {
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+        .jokes-page h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+    .joke-text {
+        font-size: 1.2rem;
+    }
+}

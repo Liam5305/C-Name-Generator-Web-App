@@ -1,27 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
 using RandomNameGenerator.Models;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace RandomNameGenerator.Controllers
 {
+    // In HomeController.cs
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly HttpClient _client;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
+            _client = new HttpClient();
+            _client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            try
+            {
+                var response = await _client.GetAsync("https://zenquotes.io/api/quotes/");
+                response.EnsureSuccessStatusCode();
+                var content = await response.Content.ReadAsStringAsync();
+                var quotes = JsonSerializer.Deserialize<InspMessage[]>(content);
+                var inspo = quotes?[0];
+                return View(inspo);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", ex.Message);
+            }
         }
     }
 }
