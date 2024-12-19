@@ -4,11 +4,11 @@
     <div class="jokes-container">
         @if (Model != null && !string.IsNullOrEmpty(Model.Joke))
         {
-            <p class="joke-text">@Model.Joke</p>
+                <p class="joke-text">@Model.Joke</p>
         }
         else
         {
-            <p class="joke-text">Loading joke...</p>
+                <p class="joke-text">Loading joke...</p>
         }
         <a href="@Url.Action("Index", "Jokes")" class="generate-joke-btn">Generate Joke</a>
     </div>
